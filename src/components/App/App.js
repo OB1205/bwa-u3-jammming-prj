@@ -30,12 +30,15 @@ class App extends Component {
   }
  }
 
- removeTrack(track){
-  let tracks = this.state.playlistTracks.filter(track => {
-  if (tracks.includes(track)){
-    this.setState({playlistTracks: tracks});
-  }}
- )
+removeTrack(track){
+  let tracks = this.state.playlistTracks;
+  if (tracks.includes(track)) {
+      let pos = tracks.indexOf(track);
+      tracks.splice(pos, 1);
+      this.setState({
+        playlistTracks: tracks
+      });
+    }
 }
 
  updatePlaylistName(name){
