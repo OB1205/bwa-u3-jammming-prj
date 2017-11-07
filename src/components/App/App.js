@@ -24,9 +24,10 @@ class App extends Component {
 
  addTrack(track){
   let tracks = this.state.playlistTracks;
-  if (tracks.push(track)){
+ if (!tracks.includes(track)) {
+      tracks.push(track);
   this.setState({playlistTracks: tracks});
-  };
+  }
  }
 
  removeTrack(track){
